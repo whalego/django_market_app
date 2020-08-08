@@ -21,12 +21,13 @@
 
 ## コーディングについて
 ※ Python以外はほとんど触ったことが無いので途中でバージョンを変える可能性もあり。
-* フロントエンド ： react16.13.1
+* フロントエンド ： Angular9
 * バックエンド ： Python3.75
   * 利用するモジュール類は別途記述する
 
 ### コーディング規約
-* ReactにはESLint(Google JavaScript style guide)を適用する。
+* AngularにはSonarLintを適用する。
+  * SonarLintの利用が困難な場合は、Google JavaScript style guideを参考に記述していく。
 * PythonにはPEP8を適用する(1行の文字数に関しては無視してもいいものとする)。
   * SonarLintでエラーが出ていない状態であること(どのようなレベルで警告されるかわからないので、分かり次第修正する)。
 
