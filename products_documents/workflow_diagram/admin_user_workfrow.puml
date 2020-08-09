@@ -1,0 +1,38 @@
+@startuml
+title
+企業商品管理者が可能な操作
+end title
+
+:企業管理者: as item_administrator
+(商品の登録) as item
+(商品一覧で表示される) as item_list
+(商品情報の変更\n（個数変更含む）) as item_change_information
+(商品の削除) as delete_item
+(アカウント情報閲覧) as account_info
+(アカウント情報の変更) as change_account_info
+(アカウントのパスワードの変更) as change_password
+(アカウントのユーザ名の変更) as change_user_name
+
+note "登録" as register
+note "反映" as change_apply
+note "反映" as delete_apply
+
+item_administrator -> item
+item . register
+register .> item_list
+
+delete_item <- item_administrator
+delete_apply .. delete_item
+item_list <... delete_apply
+
+item_change_information <- item_administrator
+change_apply .. item_change_information
+item_list <.. change_apply
+
+top to bottom direction
+item_administrator -----> account_info
+account_info -> change_account_info
+change_account_info --> change_user_name
+change_account_info -> change_password
+
+@enduml
