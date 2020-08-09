@@ -9,6 +9,8 @@
 ## 設計書について
 * 各ドキュメントの記述方法。
   * 処理フローはUML
+    * PluginはPlantUMLを利用。
+    * Pycharm上でを利用する手順[手順](https://intellectual-curiosity.tokyo/2018/12/15/pycharm%E3%81%A7plantuml%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95/)
   * DBのER図はA5:SQL Mk-2で作成する(予定)。もっと良いツールあったらそっち使う
   * 上記以外の設計書の類はMarkDown
 
