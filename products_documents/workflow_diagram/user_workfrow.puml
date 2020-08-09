@@ -27,6 +27,7 @@ end title
 (アカウント情報の変更) as change_account_info
 (アカウントのパスワードの変更) as change_password
 (アカウントのユーザ名の変更) as change_user_name
+(アカウントの削除) as delete_account
 
 has_account_user -> item_list
 item_list -> item
@@ -43,7 +44,7 @@ item_bucket -> buy_items
 has_account_user ----> account_info
 account_info -> change_account_info
 change_account_info --> change_user_name
-change_account_info -> change_password
-
+change_account_info --> change_password
+change_account_info --> delete_account
 @enduml
 
