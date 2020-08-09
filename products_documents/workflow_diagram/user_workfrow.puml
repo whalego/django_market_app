@@ -1,0 +1,48 @@
+@startuml
+title
+アカウント未所持の利用者が可能な操作
+end title
+:利用者(アカウント未所持): as no_account_user
+(商品一覧) as item_list
+(商品の詳細情報) as item
+(アカウントの作成) as create_account
+no_account_user -> item_list
+item_list -> item
+
+no_account_user --> create_account
+
+@enduml
+
+@startuml
+title
+アカウント作成者が可能な操作
+end title
+
+:利用者(アカウント所持者): as has_account_user
+(商品一覧) as item_list
+(商品の詳細情報) as item
+(買い物かご) as item_bucket
+(商品の購入) as buy_items
+(アカウント情報閲覧) as account_info
+(アカウント情報の変更) as change_account_info
+(アカウントのパスワードの変更) as change_password
+(アカウントのユーザ名の変更) as change_user_name
+
+has_account_user -> item_list
+item_list -> item
+item -> item_bucket
+note right of item
+    商品を買物かごに
+    貯めることが出来る。
+end note
+has_account_user --> item_bucket
+item --> buy_items
+item_bucket -> buy_items
+
+has_account_user ---> account_info
+account_info -> change_account_info
+change_account_info --> change_user_name
+change_account_info -> change_password
+
+@enduml
+
