@@ -1,0 +1,36 @@
+@startuml
+title
+システム構成図
+ローカル環境で実施するので、
+ローカル環境の構成図を記載することとする
+end title
+
+rectangle vagrant(バックエンド){
+    rectangle docker(APIサーバ){
+        rectangle Python_Django
+    }
+
+    rectangle docker(DBサーバ){
+        rectangle Mysql
+    }
+
+    left to right direction
+     Mysql <--> Python_Django
+}
+
+rectangle windows(フロントエンド){
+    rectangle Angular
+}
+Angular <-> Python_Django
+
+rectangle WebPage{
+}
+
+Angular <--> WebPage
+
+(・利用者\n・企業商品管理者\n・管理者) as user
+
+WebPage <-> user
+
+
+@enduml
