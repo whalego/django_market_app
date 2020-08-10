@@ -15,7 +15,7 @@
   * 利用者は企業商品管理者が登録した商品を購入することが可能。
   * 企業商品管理者は商品の登録をし利用者へ購入させることが可能。
 * システム構成図
-  * 別途記載(UML図の画像もしくは、ドキュメントのリンクを添付)
+  * システム構成図：products_documents/system_configuration_diagram
 * 業務フロー
   * 業務フロー図一覧：products_documents/workflow_diagram
 * 規模
