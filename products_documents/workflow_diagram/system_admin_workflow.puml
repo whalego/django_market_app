@@ -1,0 +1,30 @@
+@startuml
+title
+管理者が可能な操作
+end title
+
+:管理者: as system_admin
+(企業管理者の\nアカウント作成) as create_item_administrator
+(企業管理者の\nアカウント削除) as delete_item_administrator
+(企業管理者の\nパスワードリセット) as reset_item_administrator_password
+(商品一覧) as items
+(商品削除) as delete_item
+(商品編集) as change_item_info
+
+(利用者の\nアカウント削除) as delete_has_account_user
+(利用者の\nパスワードリセット) as reset_has_account_user_password
+
+system_admin --> create_item_administrator
+system_admin --> delete_item_administrator
+system_admin --> reset_item_administrator_password
+
+system_admin --> delete_item
+delete_item --> items : 反映
+system_admin --> change_item_info
+change_item_info --> items : 反映
+
+left to right direction
+system_admin --> delete_has_account_user
+system_admin --> reset_has_account_user_password
+
+@enduml
