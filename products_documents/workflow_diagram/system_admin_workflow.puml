@@ -10,6 +10,7 @@ end title
 (商品一覧) as items
 (商品削除) as delete_item
 (商品編集) as change_item_info
+(購入履歴検索) as buy_history
 
 (利用者の\nアカウント削除) as delete_has_account_user
 (利用者の\nパスワードリセット) as reset_has_account_user_password
@@ -26,5 +27,7 @@ change_item_info --> items : 反映
 left to right direction
 system_admin --> delete_has_account_user
 system_admin --> reset_has_account_user_password
+
+system_admin --> buy_history
 
 @enduml
