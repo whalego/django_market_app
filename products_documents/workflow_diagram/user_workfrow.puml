@@ -23,6 +23,7 @@ end title
 (商品の詳細情報を閲覧) as item
 (買物かご) as item_bucket
 (買物かご内の商品を購入) as buy_items
+(購入履歴) as buy_history
 (アカウント情報閲覧) as account_info
 (アカウント情報の変更) as change_account_info
 (アカウントのパスワードの変更) as change_password
@@ -40,6 +41,8 @@ item_in_bucket --> item_bucket
 has_account_user ---> item_bucket
 item -> buy_items
 item_bucket -> buy_items
+
+has_account_user --> buy_history
 
 has_account_user ----> account_info
 account_info -> change_account_info
