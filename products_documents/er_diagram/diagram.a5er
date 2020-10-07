@@ -1,4 +1,4 @@
-﻿# A5:ER FORMAT:14
+# A5:ER FORMAT:14
 # A5:ER ENCODING:UTF8
 # A5:ER Mk-1 Copyright (C)2007 m.matsubara
 # A5:SQL Mk-2 Copyright (C)1997 m.matsubara
@@ -213,7 +213,7 @@ Page=MAIN
 Left=2200
 Top=100
 Field="消費税管理番号","id","TINYINT(2)","NOT NULL",0,"","0->10, 1->8, 2->予備",$FFFFFFFF,""
-Field="値","tax","SMALLINT(1000)","NOT NULL",,"","",$FFFFFFFF,""
+Field="値","tax","SMALLINT(3)","NOT NULL",,"","",$FFFFFFFF,""
 EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
