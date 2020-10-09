@@ -1,0 +1,22 @@
+version: '3.1'
+
+services:
+  db:
+    image: mysql:5.7
+    container_name: mysql_host
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: shop
+      MYSQL_USER: vagrant
+      MYSQL_PASSWORD: vagrant
+      TZ: 'Asia/Tokyo'
+    privileged: true
+    command: mysqld --character-set-server=utf8 --collation-server=utf8_unicode_ci --skip-character-set-client-handshake
+    volumes:
+      #- /home/vagrant/work/mysql/docker/db/my.cnf:/etc/mysql/conf.d/my.cnf
+      - /home/vagrant/work/mysql/docker/db/sql/1_create_table.sql:/docker-entrypoint-initdb.d/1_create_table.sql
+      #- ./docker/db/data:/var/lib/mysql
+      #- ./docker/db/sql:/docker-entrypoint-initdb.d
+    restart: always
+    ports:
+      - "3306:3306"

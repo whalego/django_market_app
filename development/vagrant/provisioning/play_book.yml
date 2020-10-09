@@ -1,0 +1,19 @@
+---
+- hosts: vagrant
+  connection: local
+  become: true
+  tasks:
+    - name: Git install
+      yum: name=git state=latest
+    - name: docker install
+      yum: name=docker state=latest
+    - name: docker start
+      service:
+        name: docker
+        state: started
+        enabled: yes
+    - name: docker-compose install
+      yum: name=docker-compose state=latest
+    - name: docker-compose mysql up
+      shell: "docker-compose -f /home/vagrant/work/mysql/docker-compose.yml up -d"
+
