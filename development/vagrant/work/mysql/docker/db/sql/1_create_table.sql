@@ -12,12 +12,12 @@
 
 -- 管理者
 -- RestoreFromTempTable
-create table system_admin_infomation (
+create table system_admin_information (
   id CHAR(36) not null comment 'システム管理者ID'
   , password TEXT not null comment 'システム管理者パスワード'
   , created_at DATETIME not null comment '作成日時'
   , deleted_at DATETIME comment '削除日時'
-  , constraint system_admin_infomation_PKC primary key (id)
+  , constraint system_admin_information_PKC primary key (id)
 ) comment '管理者' ;
 
 -- 買い物かご
@@ -40,7 +40,7 @@ create table purchase_history (
 
 -- 利用者情報
 -- RestoreFromTempTable
-create table user_infomation (
+create table user_information (
   id CHAR(36) not null comment '利用者ID'
   , password TEXT not null comment '利用者パスワード'
   , name VARCHAR(256) not null comment '利用者名'
@@ -53,7 +53,7 @@ create table user_infomation (
   , updated_at DATETIME comment '利用者更新日時'
   , deleted_at DATETIME comment '利用者削除日時'
   , is_deleted TINYINT(1) default 0 not null comment '削除フラグ'
-  , constraint user_infomation_PKC primary key (id)
+  , constraint user_information_PKC primary key (id)
 ) comment '利用者情報' ;
 
 -- 商品評価
@@ -84,12 +84,12 @@ create table tax (
 
 -- 商品情報
 -- RestoreFromTempTable
-create table item_infomation (
+create table item_information (
   id CHAR(36) not null comment '商品IDUUID(v4)'
   , name VARCHAR(256) not null comment '商品名'
   , price BIGINT not null comment '商品価格'
   , tax_id TINYINT(2) default 0 not null comment '税金ID0-10, 1-8, 2-予備'
-  , infomation TEXT comment '情報'
+  , information TEXT comment '情報'
   , stock INT not null comment '在庫'
   , categories_one TINYINT comment 'カテゴリー1'
   , categories_two TINYINT comment 'カテゴリー2'
@@ -99,12 +99,12 @@ create table item_infomation (
   , updated_at DATETIME comment '商品更新日時'
   , deleted_at DATETIME comment '商品削除日時'
   , is_deleted TINYINT(1) default 0 not null comment '削除フラグ'
-  , constraint item_infomation_PKC primary key (id)
+  , constraint item_information_PKC primary key (id)
 ) comment '商品情報' ;
 
 -- 企業情報
 -- RestoreFromTempTable
-create table company_infomation (
+create table company_information (
   id CHAR(36) not null comment '会社IDUUID(v4)'
   , password TEXT not null comment '会社パスワード'
   , name VARCHAR(256) not null comment '会社名'
@@ -114,11 +114,11 @@ create table company_infomation (
   , address VARCHAR(256) not null comment '会社住所'
   , address_kana VARCHAR(512) comment '会社住所ふりがな'
   , zip_code CHAR(7) comment '会社郵便番号'
-  , infomation TEXT comment '会社説明'
+  , information TEXT comment '会社説明'
   , logo_image MEDIUMTEXT comment '会社ロゴ約16MBまで許容'
   , created_at DATETIME not null comment '会社作成日時'
   , updated_at DATETIME comment '会社更新日時'
   , deleted_at DATETIME comment '会社削除日時'
   , is_deleted TINYINT(1) default 0 not null comment '会社削除フラグ'
-  , constraint company_infomation_PKC primary key (id)
+  , constraint company_information_PKC primary key (id)
 ) comment '企業情報' ;
