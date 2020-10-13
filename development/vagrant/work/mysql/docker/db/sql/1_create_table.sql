@@ -1,6 +1,5 @@
 -- Project Name : market_app
 -- Date/Time    : 2020/10/13 15:25:22
--- Author       : Master_k
 -- RDBMS Type   : MySQL
 -- Application  : A5:SQL Mk-2
 
