@@ -211,15 +211,15 @@ LName=消費税
 Comment=
 TableOption=
 Page=MAIN
-Left=2196
-Top=101
+Left=2200
+Top=100
 Field="消費税管理番号","id","TINYINT(2)","NOT NULL",0,"","0->10, 1->8, 2->予備",$FFFFFFFF,""
-Field="値","tax","SMALLINT(1000)","NOT NULL",,"","",$FFFFFFFF,""
+Field="値","tax","SMALLINT(3)","NOT NULL",,"","",$FFFFFFFF,""
 EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
-ModifiedDateTime=20201002164101
-Position="MAIN",2196,101,586,146
+ModifiedDateTime=20201013172326
+Position="MAIN",2200,100,586,146
 ZOrder=4
 
 [Relation]
