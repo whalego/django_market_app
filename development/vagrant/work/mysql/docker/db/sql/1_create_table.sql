@@ -1,124 +1,125 @@
--- Project Name  market_app
--- DateTime     20201007 174713
--- Author        Master_k
--- RDBMS Type    MySQL
--- Application   A5SQL Mk-2
+-- Project Name : market_app
+-- Date/Time    : 2020/10/13 15:25:22
+-- Author       : Master_k
+-- RDBMS Type   : MySQL
+-- Application  : A5:SQL Mk-2
 
 /*
-  BackupToTempTable, RestoreFromTempTable‹^—–½—ß‚ª•t‰Á‚³‚ê‚Ä‚¢‚Ü‚·B
-  ‚±‚ê‚É‚æ‚èAdrop table, create table Œã‚àƒf[ƒ^‚ªc‚è‚Ü‚·B
-  ‚±‚Ì‹@”\‚Íˆê“I‚É $$TableName ‚Ì‚æ‚¤‚Èˆêƒe[ƒuƒ‹‚ğì¬‚µ‚Ü‚·B
+  BackupToTempTable, RestoreFromTempTableç–‘ä¼¼å‘½ä»¤ãŒä»˜åŠ ã•ã‚Œã¦ã„ã¾ã™ã€‚
+  ã“ã‚Œã«ã‚ˆã‚Šã€drop table, create table å¾Œã‚‚ãƒ‡ãƒ¼ã‚¿ãŒæ®‹ã‚Šã¾ã™ã€‚
+  ã“ã®æ©Ÿèƒ½ã¯ä¸€æ™‚çš„ã« $$TableName ã®ã‚ˆã†ãªä¸€æ™‚ãƒ†ãƒ¼ãƒ–ãƒ«ã‚’ä½œæˆã—ã¾ã™ã€‚
 */
 
--- ŠÇ—Ò
--- RestoreFromTempTable
-create table system_admin_information (
-  id CHAR(36) not null comment 'ƒVƒXƒeƒ€ŠÇ—ÒID'
-  , password TEXT not null comment 'ƒVƒXƒeƒ€ŠÇ—ÒƒpƒXƒ[ƒh'
-  , created_at DATETIME not null comment 'ì¬“ú'
-  , deleted_at DATETIME comment 'íœ“ú'
-  , constraint system_admin_information_PKC primary key (id)
-) comment 'ŠÇ—Ò' ;
+-- ç®¡ç†è€…
+--* RestoreFromTempTable
+create table system_admin_infomation (
+  id CHAR(36) not null comment 'ã‚·ã‚¹ãƒ†ãƒ ç®¡ç†è€…ID'
+  , password TEXT not null comment 'ã‚·ã‚¹ãƒ†ãƒ ç®¡ç†è€…ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰'
+  , created_at DATETIME not null comment 'ä½œæˆæ—¥æ™‚'
+  , deleted_at DATETIME comment 'å‰Šé™¤æ—¥æ™‚'
+  , is_deleted TINYINT not null comment 'å‰Šé™¤ãƒ•ãƒ©ã‚°'
+  , constraint system_admin_infomation_PKC primary key (id)
+) comment 'ç®¡ç†è€…' ;
 
--- ”ƒ‚¢•¨‚©‚²
--- RestoreFromTempTable
+-- è²·ã„ç‰©ã‹ã”
+--* RestoreFromTempTable
 create table shopping_cart (
-  user_id CHAR(36) not null comment '—˜—pÒID'
-  , item_id CHAR(36) not null comment '¤•iID'
-  , item_count INT not null comment 'w“üŒÂ”'
-  , updated_at DATETIME not null comment 'XV“ú'
-) comment '”ƒ‚¢•¨‚©‚²' ;
+  user_id CHAR(36) not null comment 'åˆ©ç”¨è€…ID'
+  , item_id CHAR(36) not null comment 'å•†å“ID'
+  , item_count INT not null comment 'è³¼å…¥å€‹æ•°'
+  , updated_at DATETIME not null comment 'æ›´æ–°æ—¥æ™‚'
+) comment 'è²·ã„ç‰©ã‹ã”' ;
 
--- w“ü—š—ğ
--- RestoreFromTempTable
+-- è³¼å…¥å±¥æ­´
+--* RestoreFromTempTable
 create table purchase_history (
-  user_id CHAR(36) not null comment '—˜—pÒID'
-  , item_id CHAR(36) not null comment '¤•iID'
-  , item_count INT not null comment 'w“üŒÂ”'
-  , purchased_at DATETIME not null comment 'w“ü“ú'
-) comment 'w“ü—š—ğ' ;
+  user_id CHAR(36) not null comment 'åˆ©ç”¨è€…ID'
+  , item_id CHAR(36) not null comment 'å•†å“ID'
+  , item_count INT not null comment 'è³¼å…¥å€‹æ•°'
+  , purchased_at DATETIME not null comment 'è³¼å…¥æ—¥æ™‚'
+) comment 'è³¼å…¥å±¥æ­´' ;
 
--- —˜—pÒî•ñ
--- RestoreFromTempTable
-create table user_information (
-  id CHAR(36) not null comment '—˜—pÒID'
-  , password TEXT not null comment '—˜—pÒƒpƒXƒ[ƒh'
-  , name VARCHAR(256) not null comment '—˜—pÒ–¼'
-  , name_kana VARCHAR(512) not null comment '—˜—pÒ‚Ó‚è‚ª‚È'
-  , mail_address VARCHAR(255) not null comment '—˜—pÒƒ[ƒ‹ƒAƒhƒŒƒX'
-  , address VARCHAR(256) not null comment '—˜—pÒZŠ'
-  , address_kana VARCHAR(512) comment '—˜—pÒZŠ‚Ó‚è‚ª‚È'
-  , zip_code CHAR(7) not null comment '—˜—pÒ—X•Ö”Ô†'
-  , created_at DATETIME not null comment '—˜—pÒì¬“ú'
-  , updated_at DATETIME comment '—˜—pÒXV“ú'
-  , deleted_at DATETIME comment '—˜—pÒíœ“ú'
-  , is_deleted TINYINT(1) default 0 not null comment 'íœƒtƒ‰ƒO'
-  , constraint user_information_PKC primary key (id)
-) comment '—˜—pÒî•ñ' ;
+-- åˆ©ç”¨è€…æƒ…å ±
+--* RestoreFromTempTable
+create table user_infomation (
+  id CHAR(36) not null comment 'åˆ©ç”¨è€…ID'
+  , password TEXT not null comment 'åˆ©ç”¨è€…ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰'
+  , name VARCHAR(256) not null comment 'åˆ©ç”¨è€…å'
+  , name_kana VARCHAR(512) not null comment 'åˆ©ç”¨è€…ãµã‚ŠãŒãª'
+  , mail_address VARCHAR(255) not null comment 'åˆ©ç”¨è€…ãƒ¡ãƒ¼ãƒ«ã‚¢ãƒ‰ãƒ¬ã‚¹'
+  , address VARCHAR(256) not null comment 'åˆ©ç”¨è€…ä½æ‰€'
+  , address_kana VARCHAR(512) comment 'åˆ©ç”¨è€…ä½æ‰€ãµã‚ŠãŒãª'
+  , zip_code CHAR(7) not null comment 'åˆ©ç”¨è€…éƒµä¾¿ç•ªå·'
+  , created_at DATETIME not null comment 'åˆ©ç”¨è€…ä½œæˆæ—¥æ™‚'
+  , updated_at DATETIME comment 'åˆ©ç”¨è€…æ›´æ–°æ—¥æ™‚'
+  , deleted_at DATETIME comment 'åˆ©ç”¨è€…å‰Šé™¤æ—¥æ™‚'
+  , is_deleted TINYINT(1) default 0 not null comment 'å‰Šé™¤ãƒ•ãƒ©ã‚°'
+  , constraint user_infomation_PKC primary key (id)
+) comment 'åˆ©ç”¨è€…æƒ…å ±' ;
 
--- ¤•i•]‰¿
--- RestoreFromTempTable
+-- å•†å“è©•ä¾¡
+--* RestoreFromTempTable
 create table item_review (
-  id CHAR(36) not null comment '•]‰¿ID'
-  , item_id CHAR(36) not null comment '¤•iID'
-  , review FLOAT(2,1) not null comment 'ƒŒƒrƒ…['
-  , rate FLOAT(2,1) not null comment 'ƒŒ[ƒg'
+  id CHAR(36) not null comment 'è©•ä¾¡ID'
+  , item_id CHAR(36) not null comment 'å•†å“ID'
+  , review FLOAT(2,1) not null comment 'ãƒ¬ãƒ“ãƒ¥ãƒ¼'
+  , rate FLOAT(2,1) not null comment 'ãƒ¬ãƒ¼ãƒˆ'
   , constraint item_review_PKC primary key (id)
-) comment '¤•i•]‰¿' ;
+) comment 'å•†å“è©•ä¾¡' ;
 
--- ¤•iƒJƒeƒSƒŠ[
--- RestoreFromTempTable
+-- å•†å“ã‚«ãƒ†ã‚´ãƒªãƒ¼
+--* RestoreFromTempTable
 create table categories (
-  id TINYINT not null comment 'ƒJƒeƒSƒŠ[ID'
-  , name VARCHAR(128) not null comment 'ƒJƒeƒSƒŠ[–¼'
+  id TINYINT not null comment 'ã‚«ãƒ†ã‚´ãƒªãƒ¼ID'
+  , name VARCHAR(128) not null comment 'ã‚«ãƒ†ã‚´ãƒªãƒ¼å'
   , constraint categories_PKC primary key (id)
-) comment '¤•iƒJƒeƒSƒŠ[' ;
+) comment 'å•†å“ã‚«ãƒ†ã‚´ãƒªãƒ¼' ;
 
--- Á”ïÅ
--- RestoreFromTempTable
+-- æ¶ˆè²»ç¨
+--* RestoreFromTempTable
 create table tax (
-  id TINYINT(2) not null comment 'Á”ïÅŠÇ—”Ô†0-10, 1-8, 2-—\”õ'
-  , tax SMALLINT(3) not null comment '’l'
+  id TINYINT(2) not null comment 'æ¶ˆè²»ç¨ç®¡ç†ç•ªå·:0->10, 1->8, 2->äºˆå‚™'
+  , tax SMALLINT(3) not null comment 'å€¤'
   , constraint tax_PKC primary key (id)
-) comment 'Á”ïÅ' ;
+) comment 'æ¶ˆè²»ç¨' ;
 
--- ¤•iî•ñ
--- RestoreFromTempTable
-create table item_information (
-  id CHAR(36) not null comment '¤•iIDUUID(v4)'
-  , name VARCHAR(256) not null comment '¤•i–¼'
-  , price BIGINT not null comment '¤•i‰¿Ši'
-  , tax_id TINYINT(2) default 0 not null comment 'Å‹àID0-10, 1-8, 2-—\”õ'
-  , information TEXT comment 'î•ñ'
-  , stock INT not null comment 'İŒÉ'
-  , categories_one TINYINT comment 'ƒJƒeƒSƒŠ[1'
-  , categories_two TINYINT comment 'ƒJƒeƒSƒŠ[2'
-  , categories_three TINYINT comment 'ƒJƒeƒSƒŠ[3'
-  , created_company_id CHAR(36) not null comment '“o˜^‰ïĞ'
-  , created_at DATETIME not null comment '¤•iì¬“ú'
-  , updated_at DATETIME comment '¤•iXV“ú'
-  , deleted_at DATETIME comment '¤•iíœ“ú'
-  , is_deleted TINYINT(1) default 0 not null comment 'íœƒtƒ‰ƒO'
-  , constraint item_information_PKC primary key (id)
-) comment '¤•iî•ñ' ;
+-- å•†å“æƒ…å ±
+--* RestoreFromTempTable
+create table item_infomation (
+  id CHAR(36) not null comment 'å•†å“ID:UUID(v4)'
+  , name VARCHAR(256) not null comment 'å•†å“å'
+  , price BIGINT not null comment 'å•†å“ä¾¡æ ¼'
+  , tax_id TINYINT(2) default 0 not null comment 'ç¨é‡‘ID:0->10, 1->8, 2->äºˆå‚™'
+  , infomation TEXT comment 'æƒ…å ±'
+  , stock INT not null comment 'åœ¨åº«'
+  , categories_one TINYINT comment 'ã‚«ãƒ†ã‚´ãƒªãƒ¼1'
+  , categories_two TINYINT comment 'ã‚«ãƒ†ã‚´ãƒªãƒ¼2'
+  , categories_three TINYINT comment 'ã‚«ãƒ†ã‚´ãƒªãƒ¼3'
+  , created_company_id CHAR(36) not null comment 'ç™»éŒ²ä¼šç¤¾'
+  , created_at DATETIME not null comment 'å•†å“ä½œæˆæ—¥æ™‚'
+  , updated_at DATETIME comment 'å•†å“æ›´æ–°æ—¥æ™‚'
+  , deleted_at DATETIME comment 'å•†å“å‰Šé™¤æ—¥æ™‚'
+  , is_deleted TINYINT(1) default 0 not null comment 'å‰Šé™¤ãƒ•ãƒ©ã‚°'
+  , constraint item_infomation_PKC primary key (id)
+) comment 'å•†å“æƒ…å ±' ;
 
--- Šé‹Æî•ñ
--- RestoreFromTempTable
-create table company_information (
-  id CHAR(36) not null comment '‰ïĞIDUUID(v4)'
-  , password TEXT not null comment '‰ïĞƒpƒXƒ[ƒh'
-  , name VARCHAR(256) not null comment '‰ïĞ–¼'
-  , name_kana VARCHAR(512) not null comment '‰ïĞ–¼‚Ó‚è‚ª‚È'
-  , phone_number VARCHAR(16) not null comment '‰ïĞ‚Ì“d˜b”Ô†'
-  , mail_address VARCHAR(255) not null comment '‰ïĞƒ[ƒ‹ƒAƒhƒŒƒX'
-  , address VARCHAR(256) not null comment '‰ïĞZŠ'
-  , address_kana VARCHAR(512) comment '‰ïĞZŠ‚Ó‚è‚ª‚È'
-  , zip_code CHAR(7) comment '‰ïĞ—X•Ö”Ô†'
-  , information TEXT comment '‰ïĞà–¾'
-  , logo_image MEDIUMTEXT comment '‰ïĞƒƒS–ñ16MB‚Ü‚Å‹–—e'
-  , created_at DATETIME not null comment '‰ïĞì¬“ú'
-  , updated_at DATETIME comment '‰ïĞXV“ú'
-  , deleted_at DATETIME comment '‰ïĞíœ“ú'
-  , is_deleted TINYINT(1) default 0 not null comment '‰ïĞíœƒtƒ‰ƒO'
-  , constraint company_information_PKC primary key (id)
-) comment 'Šé‹Æî•ñ' ;
+-- ä¼æ¥­æƒ…å ±
+--* RestoreFromTempTable
+create table company_infomation (
+  id CHAR(36) not null comment 'ä¼šç¤¾ID:UUID(v4)'
+  , password TEXT not null comment 'ä¼šç¤¾ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰'
+  , name VARCHAR(256) not null comment 'ä¼šç¤¾å'
+  , name_kana VARCHAR(512) not null comment 'ä¼šç¤¾åãµã‚ŠãŒãª'
+  , phone_number VARCHAR(16) not null comment 'ä¼šç¤¾ã®é›»è©±ç•ªå·'
+  , mail_address VARCHAR(255) not null comment 'ä¼šç¤¾ãƒ¡ãƒ¼ãƒ«ã‚¢ãƒ‰ãƒ¬ã‚¹'
+  , address VARCHAR(256) not null comment 'ä¼šç¤¾ä½æ‰€'
+  , address_kana VARCHAR(512) comment 'ä¼šç¤¾ä½æ‰€ãµã‚ŠãŒãª'
+  , zip_code CHAR(7) comment 'ä¼šç¤¾éƒµä¾¿ç•ªå·'
+  , infomation TEXT comment 'ä¼šç¤¾èª¬æ˜'
+  , logo_image MEDIUMTEXT comment 'ä¼šç¤¾ãƒ­ã‚´:ç´„16MBã¾ã§è¨±å®¹'
+  , created_at DATETIME not null comment 'ä¼šç¤¾ä½œæˆæ—¥æ™‚'
+  , updated_at DATETIME comment 'ä¼šç¤¾æ›´æ–°æ—¥æ™‚'
+  , deleted_at DATETIME comment 'ä¼šç¤¾å‰Šé™¤æ—¥æ™‚'
+  , is_deleted TINYINT(1) default 0 not null comment 'ä¼šç¤¾å‰Šé™¤ãƒ•ãƒ©ã‚°'
+  , constraint company_infomation_PKC primary key (id)
+) comment 'ä¼æ¥­æƒ…å ±' ;
