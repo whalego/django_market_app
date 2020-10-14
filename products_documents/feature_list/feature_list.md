@@ -1,31 +1,32 @@
-# �@�\�ꗗ
-| �@�\�� | �֐��� | �@�\�ڍ� |
+## ログイン認証
+| feature_name | url_pattern | about |
 | ---- | --- | ---- |
-| TD | TD | TD |
+| ログイン | login_oauth | 各アカウントをDBのデータと都合する。 |
+| ログアウト | logout | 各対象アカウントのログアウト |
 
-## �F�،n�@�\
-| �@�\�� | �֐��� | �@�\�ڍ� |
+
+## アカウント管理
+| feature_name | url_pattern | about |
 | ---- | --- | ---- |
-| ID�ƃp�X���[�h�̓ˍ� | login_outh | TD |
-| TD | TD | TD |
-| TD | TD | TD |
-| TD | TD | TD |
-| TD | TD | TD |
+| 企業アカウントの作成 | make_company_account | 企業アカウントの作成 |
+| 企業アカウントの削除 | delete_company_account | 企業アカウントの削除<br>(削除フラグを1にする) |
+| 企業アカウントの更新 | update_company_account | 企業アカウントの情報を更新 |
+| 利用者アカウントの作成 | make_user_account | 利用者アカウントの作成 |
+| 利用者アカウントの削除 | delete_user_account | 利用者アカウントの削除<br>(削除フラグを１にする) |
+| 利用者アカウントの更新 | update_user_account | 利用者アカウントの更新 |
+| システム管理者アカウントの作成 | make_system_admin_account | システム管理者のアカウントの作成<br>(更新は行わないものとする) |
+| システム管理者アカウントの削除 | delete_system_admin_account | システム管理者アカウントの削除<br>(削除フラグを１にする) |
+| 各ユーザのパスワードリセット | reset_password | システム管理者がシステム管理者以外のユーザの<br>パスワードをリセットする |
 
-
-## �e���[�U�̒ǉ��@�\
-| �@�\�� | �֐��� | �@�\�ڍ� |
+## 商品管理
+| feature_name | url_pattern | about |
 | ---- | --- | ---- |
-| ��ƃA�J�E���g�쐬 | make_company_account | ��Ƃ̃A�J�E���g���̍쐬 |
-| ��ƃA�J�E���g�폜 | delete_company_account | ��ƃA�J�E���g�̍폜<br>(�폜�̓t���O�𗧂Ă邾��) |
-| ��ƃA�J�E���g�X�V | update_company_account | ��ƃA�J�E���g���̍X�V |
-| ���p�҃A�J�E���g�쐬 | make_user_account | ���p�҂̃A�J�E���g���̍쐬 |
-| ���p�҃A�J�E���g�폜 | delete_user_account | ���p�҃A�J�E���g�̍폜<br>(�폜�̓t���O�𗧂Ă邾��) |
-| ���p�҃A�J�E���g�X�V | update_user_account | ���p�҃A�J�E���g���̍X�V |
-| �V�X�e���Ǘ��҃A�J�E���g�쐬 | make_system_admin_account | �V�X�e���Ǘ��҃A�J�E���g���̍쐬<br>(�O������N���o���Ȃ��悤�ɂ���K�v����) |
-| �V�X�e���Ǘ��҃A�J�E���g�폜 | delete_system_admin_account | �V�X�e���Ǘ��҃A�J�E���g�̍폜<br>(�폜�̓t���O�𗧂Ă邾��) |
-
-�� �V�X�e���Ǘ��҃A�J�E���g�̍X�V�@�\�͗��p���Ȃ��z��̂��ߍ쐬�͂���Ȃ��B
-
-## ���̎擾�n
+| 商品の登録 | add_item | 企業アカウントから商品の登録を行う |
+| 商品の削除 | delete_item | 企業アカウントとシステム管理者からの商品の削除を行う |
+| 商品の情報更新 | update_item | 企業アカウントとシステム管理者からの商品の更新を行う |
+| 商品の表示 | show_item | 全ユーザーが使う商品の一覧の取得 |
+| 商品の購入 | buy_item | 利用者が商品の購入を行う |
+| 買い物かごの更新 | update_item_bucket | 利用者の購入予定商品の更新 |
+| 買い物かごの情報表示 | show_item_bucket | 利用者の購入予定商品の詳細表示 |
+| 購入履歴の閲覧 | show_purchase_history | 利用者とシステム管理者からの購入履歴の閲覧 |
 
