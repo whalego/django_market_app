@@ -1,12 +1,12 @@
 ## ログイン認証
-| feature_name | url_pattern | about |
+| function_name | url_pattern | about |
 | ---- | --- | ---- |
 | ログイン | login_oauth | 各アカウントをDBのデータと都合する。 |
 | ログアウト | logout | 各対象アカウントのログアウト |
 
 
 ## アカウント管理
-| feature_name | url_pattern | about |
+| function_name | url_pattern | about |
 | ---- | --- | ---- |
 | 企業アカウントの作成 | make_company_account | 企業アカウントの作成 |
 | 企業アカウントの削除 | delete_company_account | 企業アカウントの削除<br>(削除フラグを1にする) |
@@ -19,7 +19,7 @@
 | 各ユーザのパスワードリセット | reset_password | システム管理者がシステム管理者以外のユーザの<br>パスワードをリセットする |
 
 ## 商品管理
-| feature_name | url_pattern | about |
+| function_name | url_pattern | about |
 | ---- | --- | ---- |
 | 商品の登録 | add_item | 企業アカウントから商品の登録を行う |
 | 商品の削除 | delete_item | 企業アカウントとシステム管理者からの商品の削除を行う |
